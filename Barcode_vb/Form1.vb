@@ -11,4 +11,8 @@
         Me.Prdocut_ListTableAdapter.Fill(Me.Barcode_ds.Prdocut_List)
 
     End Sub
+
+    Private Sub Prdocut_ListBindingNavigator_RefreshItems(sender As Object, e As EventArgs) Handles Prdocut_ListBindingNavigator.RefreshItems
+
+    End Sub
 End Class

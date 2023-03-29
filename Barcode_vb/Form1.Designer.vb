@@ -31,17 +31,17 @@ Partial Class Form1
         Me.Prdocut_ListTableAdapter = New Barcode_vb.barcode_dsTableAdapters.Prdocut_ListTableAdapter()
         Me.TableAdapterManager = New Barcode_vb.barcode_dsTableAdapters.TableAdapterManager()
         Me.Prdocut_ListBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
+        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
         Me.BindingNavigatorPositionItem = New System.Windows.Forms.ToolStripTextBox()
-        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.Prdocut_ListBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.Prdocut_ListDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -94,20 +94,46 @@ Partial Class Form1
         'Prdocut_ListBindingNavigator
         '
         Me.Prdocut_ListBindingNavigator.AddNewItem = Me.BindingNavigatorAddNewItem
+        Me.Prdocut_ListBindingNavigator.AutoSize = False
         Me.Prdocut_ListBindingNavigator.BindingSource = Me.Prdocut_ListBindingSource
         Me.Prdocut_ListBindingNavigator.CountItem = Me.BindingNavigatorCountItem
         Me.Prdocut_ListBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
+        Me.Prdocut_ListBindingNavigator.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Prdocut_ListBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.Prdocut_ListBindingNavigatorSaveItem})
-        Me.Prdocut_ListBindingNavigator.Location = New System.Drawing.Point(0, 0)
+        Me.Prdocut_ListBindingNavigator.Location = New System.Drawing.Point(0, 522)
         Me.Prdocut_ListBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
         Me.Prdocut_ListBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
         Me.Prdocut_ListBindingNavigator.MoveNextItem = Me.BindingNavigatorMoveNextItem
         Me.Prdocut_ListBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.Prdocut_ListBindingNavigator.Name = "Prdocut_ListBindingNavigator"
         Me.Prdocut_ListBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.Prdocut_ListBindingNavigator.Size = New System.Drawing.Size(732, 25)
+        Me.Prdocut_ListBindingNavigator.Size = New System.Drawing.Size(732, 42)
         Me.Prdocut_ListBindingNavigator.TabIndex = 2
         Me.Prdocut_ListBindingNavigator.Text = "BindingNavigator1"
+        '
+        'BindingNavigatorAddNewItem
+        '
+        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
+        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 39)
+        Me.BindingNavigatorAddNewItem.Text = "Add new"
+        '
+        'BindingNavigatorCountItem
+        '
+        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 22)
+        Me.BindingNavigatorCountItem.Text = "of {0}"
+        Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
+        '
+        'BindingNavigatorDeleteItem
+        '
+        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
+        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(60, 39)
+        Me.BindingNavigatorDeleteItem.Text = "Delete"
         '
         'BindingNavigatorMoveFirstItem
         '
@@ -136,22 +162,16 @@ Partial Class Form1
         '
         Me.BindingNavigatorPositionItem.AccessibleName = "Position"
         Me.BindingNavigatorPositionItem.AutoSize = False
+        Me.BindingNavigatorPositionItem.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
         Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 23)
         Me.BindingNavigatorPositionItem.Text = "0"
         Me.BindingNavigatorPositionItem.ToolTipText = "Current position"
         '
-        'BindingNavigatorCountItem
-        '
-        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 15)
-        Me.BindingNavigatorCountItem.Text = "of {0}"
-        Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
-        '
         'BindingNavigatorSeparator1
         '
-        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 6)
+        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
+        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
         '
         'BindingNavigatorMoveNextItem
         '
@@ -159,7 +179,7 @@ Partial Class Form1
         Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
         Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 20)
+        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMoveNextItem.Text = "Move next"
         '
         'BindingNavigatorMoveLastItem
@@ -168,38 +188,19 @@ Partial Class Form1
         Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
         Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 20)
+        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMoveLastItem.Text = "Move last"
         '
         'BindingNavigatorSeparator2
         '
-        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 6)
-        '
-        'BindingNavigatorAddNewItem
-        '
-        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
-        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorAddNewItem.Text = "Add new"
-        '
-        'BindingNavigatorDeleteItem
-        '
-        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
-        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 20)
-        Me.BindingNavigatorDeleteItem.Text = "Delete"
+        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
+        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
         '
         'Prdocut_ListBindingNavigatorSaveItem
         '
-        Me.Prdocut_ListBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.Prdocut_ListBindingNavigatorSaveItem.Image = CType(resources.GetObject("Prdocut_ListBindingNavigatorSaveItem.Image"), System.Drawing.Image)
         Me.Prdocut_ListBindingNavigatorSaveItem.Name = "Prdocut_ListBindingNavigatorSaveItem"
-        Me.Prdocut_ListBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 23)
+        Me.Prdocut_ListBindingNavigatorSaveItem.Size = New System.Drawing.Size(78, 39)
         Me.Prdocut_ListBindingNavigatorSaveItem.Text = "Save Data"
         '
         'Prdocut_ListDataGridView
@@ -208,7 +209,7 @@ Partial Class Form1
         Me.Prdocut_ListDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Prdocut_ListDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
         Me.Prdocut_ListDataGridView.DataSource = Me.Prdocut_ListBindingSource
-        Me.Prdocut_ListDataGridView.Location = New System.Drawing.Point(69, 221)
+        Me.Prdocut_ListDataGridView.Location = New System.Drawing.Point(69, 139)
         Me.Prdocut_ListDataGridView.Name = "Prdocut_ListDataGridView"
         Me.Prdocut_ListDataGridView.Size = New System.Drawing.Size(586, 348)
         Me.Prdocut_ListDataGridView.TabIndex = 3
@@ -243,7 +244,7 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.ClientSize = New System.Drawing.Size(732, 629)
+        Me.ClientSize = New System.Drawing.Size(732, 564)
         Me.Controls.Add(Me.Prdocut_ListDataGridView)
         Me.Controls.Add(Me.Prdocut_ListBindingNavigator)
         Me.Controls.Add(Me.Label1)
