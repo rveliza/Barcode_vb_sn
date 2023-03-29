@@ -8,11 +8,12 @@
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'Barcode_ds.Prdocut_List' table. You can move, or remove it, as needed.
-        Me.Prdocut_ListTableAdapter.Fill(Me.Barcode_ds.Prdocut_List)
+        'Me.Prdocut_ListTableAdapter.Fill(Me.Barcode_ds.Prdocut_List)
 
     End Sub
 
-    Private Sub Prdocut_ListBindingNavigator_RefreshItems(sender As Object, e As EventArgs) Handles Prdocut_ListBindingNavigator.RefreshItems
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Prdocut_ListTableAdapter.Fill(Me.Barcode_ds.Prdocut_List)
     End Sub
 End Class
