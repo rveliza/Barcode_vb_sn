@@ -24,10 +24,12 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.search_TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Prdocut_ListBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.Prdocut_ListBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Barcode_ds = New Barcode_vb.barcode_ds()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
@@ -40,33 +42,33 @@ Partial Class Form1
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.Prdocut_ListBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.Prdocut_ListDataGridView = New System.Windows.Forms.DataGridView()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Prdocut_ListBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Barcode_ds = New Barcode_vb.barcode_ds()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Prdocut_ListTableAdapter = New Barcode_vb.barcode_dsTableAdapters.Prdocut_ListTableAdapter()
         Me.TableAdapterManager = New Barcode_vb.barcode_dsTableAdapters.TableAdapterManager()
+        Me.Button3 = New System.Windows.Forms.Button()
         CType(Me.Prdocut_ListBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Prdocut_ListBindingNavigator.SuspendLayout()
-        CType(Me.Prdocut_ListDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Prdocut_ListBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Barcode_ds, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Prdocut_ListDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'TextBox1
+        'search_TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(489, 79)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(164, 21)
-        Me.TextBox1.TabIndex = 0
+        Me.search_TextBox1.Location = New System.Drawing.Point(382, 46)
+        Me.search_TextBox1.Name = "search_TextBox1"
+        Me.search_TextBox1.Size = New System.Drawing.Size(164, 21)
+        Me.search_TextBox1.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(367, 85)
+        Me.Label1.Location = New System.Drawing.Point(268, 46)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(98, 15)
         Me.Label1.TabIndex = 1
@@ -100,6 +102,16 @@ Partial Class Form1
         Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
         Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 39)
         Me.BindingNavigatorAddNewItem.Text = "Add new"
+        '
+        'Prdocut_ListBindingSource
+        '
+        Me.Prdocut_ListBindingSource.DataMember = "Prdocut_List"
+        Me.Prdocut_ListBindingSource.DataSource = Me.Barcode_ds
+        '
+        'Barcode_ds
+        '
+        Me.Barcode_ds.DataSetName = "barcode_ds"
+        Me.Barcode_ds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'BindingNavigatorCountItem
         '
@@ -195,15 +207,6 @@ Partial Class Form1
         Me.Prdocut_ListDataGridView.Size = New System.Drawing.Size(586, 348)
         Me.Prdocut_ListDataGridView.TabIndex = 3
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(69, 79)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Load All"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "ID"
@@ -231,15 +234,23 @@ Partial Class Form1
         Me.DataGridViewTextBoxColumn4.HeaderText = "Product_Price"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         '
-        'Prdocut_ListBindingSource
+        'Button1
         '
-        Me.Prdocut_ListBindingSource.DataMember = "Prdocut_List"
-        Me.Prdocut_ListBindingSource.DataSource = Me.Barcode_ds
+        Me.Button1.Location = New System.Drawing.Point(69, 79)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(132, 23)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "Load All"
+        Me.Button1.UseVisualStyleBackColor = True
         '
-        'Barcode_ds
+        'Button2
         '
-        Me.Barcode_ds.DataSetName = "barcode_ds"
-        Me.Barcode_ds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.Button2.Location = New System.Drawing.Point(69, 50)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(132, 23)
+        Me.Button2.TabIndex = 5
+        Me.Button2.Text = "Load Barcode Data"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'Prdocut_ListTableAdapter
         '
@@ -251,17 +262,28 @@ Partial Class Form1
         Me.TableAdapterManager.Prdocut_ListTableAdapter = Me.Prdocut_ListTableAdapter
         Me.TableAdapterManager.UpdateOrder = Barcode_vb.barcode_dsTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(567, 46)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.TabIndex = 6
+        Me.Button3.Text = "Search"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(732, 564)
+        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Prdocut_ListDataGridView)
         Me.Controls.Add(Me.Prdocut_ListBindingNavigator)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.search_TextBox1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -274,15 +296,15 @@ Partial Class Form1
         CType(Me.Prdocut_ListBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Prdocut_ListBindingNavigator.ResumeLayout(False)
         Me.Prdocut_ListBindingNavigator.PerformLayout()
-        CType(Me.Prdocut_ListDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Prdocut_ListBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Barcode_ds, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Prdocut_ListDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents search_TextBox1 As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Barcode_ds As barcode_ds
     Friend WithEvents Prdocut_ListBindingSource As BindingSource
@@ -307,4 +329,6 @@ Partial Class Form1
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
 End Class

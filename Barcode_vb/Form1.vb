@@ -16,4 +16,19 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Prdocut_ListTableAdapter.Fill(Me.Barcode_ds.Prdocut_List)
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Me.Prdocut_ListTableAdapter.FillBy_barcode_data(Me.Barcode_ds.Prdocut_List)
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Me.Prdocut_ListTableAdapter.FillBy_barcode_search(Me.Barcode_ds.Prdocut_List, Me.search_TextBox1.Text)
+    End Sub
+
+    Private Sub search_TextBox1_KeyDown(sender As Object, e As KeyEventArgs) Handles search_TextBox1.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            Me.search_TextBox1.SelectAll()
+            Button3_Click(sender, e)
+        End If
+    End Sub
 End Class
